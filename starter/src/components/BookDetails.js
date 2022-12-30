@@ -1,7 +1,17 @@
 import React from 'react'
-import ShelfDropdown from './ShelfDropdown'
+import ShelfDropdown from './ShelfDropdown';
+import * as BooksAPI from '../BooksAPI'
 
-function BookDetails({book}) {
+function BookDetails({book,updateBookShelf}) {
+
+  // API call to update the shelf of the book
+  const updateShelf = (newShelf) => {
+    const updateBookDetails = async () => {
+      await BooksAPI.update(book, newShelf);
+      updateBookShelf(book, newShelf);
+    };
+    updateBookDetails();
+  };
   return (
     <li>
                       <div className="book">
@@ -16,7 +26,7 @@ function BookDetails({book}) {
                 book.imageLinks.thumbnail})`,
                             }}
                           ></div>
-                          <ShelfDropdown/>
+                          <ShelfDropdown booksCategory={book.shelf === undefined ? "none" : book.shelf} onChangeShelf={(newShelf) => updateShelf(newShelf)} />
                         </div>
                         <div className="book-title">{book.title}</div>
                         <div className="book-authors">{book.authors}</div>

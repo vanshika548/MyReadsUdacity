@@ -1,9 +1,16 @@
 import React from 'react'
 
-function ShelfDropdown() {
+function ShelfDropdown({ onChangeShelf, booksCategory }) {
+  const changeShelf = (newShelf) => {
+    if (onChangeShelf) {
+      onChangeShelf(newShelf);
+    }
+  };
   return (
     <div className="book-shelf-changer">
-                            <select>
+                            <select value={booksCategory}
+        onChange={(event) => {
+          changeShelf(event.target.value)}}>
                               <option value="none" disabled>
                                 Move to...
                               </option>

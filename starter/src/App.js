@@ -15,6 +15,23 @@ function App() {
     { key: 'read', name: 'Read' }
   ]
 
+  const updateBookShelf = (book, updatedShelf) => {
+    const updateBook = () => {
+      const id = books.findIndex((bookShelf) => {
+        return bookShelf.id === book.id;
+      });
+      if (id >= 0) {
+        let updatedBooksShelf = [...books];
+        updatedBooksShelf[id].shelf = updatedShelf;
+        setBooks(updatedBooksShelf);
+      }
+    };
+    BooksAPI.getAll().then((data) => {
+      setBooks(data);
+    });
+    updateBook();
+  };
+
   // API call to get list of all books
   const getAllBooks = async () => {
     const data = await BooksAPI.getAll();
@@ -30,8 +47,12 @@ function App() {
     <div className="app">
     <BrowserRouter>
         <Routes>
-          <Route path="/search" element={<SearchBook/>}></Route>
-          <Route path='/' element={<ListOfBooks books={books} myShelves={myShelves}/>}></Route>
+          <Route path="/search" element={<SearchBook books={books} updateBookShelf={(book, updatedShelf) =>
+            updateBookShelf(book, updatedShelf)
+          } />}></Route>
+          <Route path='/' element={<ListOfBooks books={books} myShelves={myShelves} updateBookShelf={(book, updatedShelf) =>
+            updateBookShelf(book, updatedShelf)
+          }/>}></Route>
         </Routes>
       </BrowserRouter>
     </div>
