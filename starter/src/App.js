@@ -35,7 +35,6 @@ function App() {
   // API call to get list of all books
   const getAllBooks = async () => {
     const data = await BooksAPI.getAll();
-    console.log("data", data)
     setBooks(data);
   }
 

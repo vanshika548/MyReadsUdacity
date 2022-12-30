@@ -1,6 +1,6 @@
-import React from 'react'
+import React from 'react';
 import ShelfDropdown from './ShelfDropdown';
-import * as BooksAPI from '../BooksAPI'
+import * as BooksAPI from '../BooksAPI';
 
 function BookDetails({ book, updateBookShelf }) {
 

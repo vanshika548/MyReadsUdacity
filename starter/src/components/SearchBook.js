@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import * as BooksAPI from '../BooksAPI';
 import BookDetails from './BookDetails';
@@ -8,7 +8,7 @@ function SearchBook({ books, updateBookShelf }) {
   const [searchQuery, setSearchQuery] = useState("");
   const [searchedBook, setSearchedBook] = useState([]);
 
-// API call to update the shelf of particular book
+  // API call to update the shelf of particular book
   const updateBookCategory = (book, newShelf) => {
     const updateBook = () => {
       const id = searchedBook.findIndex((searchedBook) => {
@@ -46,7 +46,7 @@ function SearchBook({ books, updateBookShelf }) {
           }
         }
       }).catch((error) => {
-        console.log("error", error)
+        console.log(error);
       });
     } else {
       setSearchedBook([]);

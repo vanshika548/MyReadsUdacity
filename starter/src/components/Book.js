@@ -1,5 +1,5 @@
-import React from 'react'
-import BookDetails from './BookDetails'
+import React from 'react';
+import BookDetails from './BookDetails';
 
 function Book({ shelf, books, updateBookShelf }) {
   return (

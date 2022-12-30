@@ -1,6 +1,6 @@
-import React from 'react'
-import Book from './Book'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import Book from './Book';
+import { Link } from 'react-router-dom';
 
 function ListOfBooks({ books, myShelves, updateBookShelf }) {
 
