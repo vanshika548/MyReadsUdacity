@@ -35,7 +35,7 @@ function App() {
   // API call to get list of all books
   const getAllBooks = async () => {
     const data = await BooksAPI.getAll();
-    console.log("data",data)
+    console.log("data", data)
     setBooks(data);
   }
 
@@ -45,14 +45,14 @@ function App() {
 
   return (
     <div className="app">
-    <BrowserRouter>
+      <BrowserRouter>
         <Routes>
           <Route path="/search" element={<SearchBook books={books} updateBookShelf={(book, updatedShelf) =>
             updateBookShelf(book, updatedShelf)
           } />}></Route>
           <Route path='/' element={<ListOfBooks books={books} myShelves={myShelves} updateBookShelf={(book, updatedShelf) =>
             updateBookShelf(book, updatedShelf)
-          }/>}></Route>
+          } />}></Route>
         </Routes>
       </BrowserRouter>
     </div>
