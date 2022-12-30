@@ -15,7 +15,7 @@ function App() {
     { key: 'read', name: 'Read' }
   ]
 
-  const updateBookShelf = (book, updatedShelf) => {
+  const updateBookByShelf = (book, updatedShelf) => {
     const updateBook = () => {
       const id = books.findIndex((bookShelf) => {
         return bookShelf.id === book.id;
@@ -46,11 +46,11 @@ function App() {
     <div className="app">
       <BrowserRouter>
         <Routes>
-          <Route path="/search" element={<SearchBook books={books} updateBookShelf={(book, updatedShelf) =>
-            updateBookShelf(book, updatedShelf)
+          <Route path="/search" element={<SearchBook books={books} updateBookByShelf={(book, updatedShelf) =>
+            updateBookByShelf(book, updatedShelf)
           } />}></Route>
-          <Route path='/' element={<ListOfBooks books={books} myShelves={myShelves} updateBookShelf={(book, updatedShelf) =>
-            updateBookShelf(book, updatedShelf)
+          <Route path='/' element={<ListOfBooks books={books} myShelves={myShelves} updateBookByShelf={(book, updatedShelf) =>
+            updateBookByShelf(book, updatedShelf)
           } />}></Route>
         </Routes>
       </BrowserRouter>

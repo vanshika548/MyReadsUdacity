@@ -3,13 +3,13 @@ import { Link } from 'react-router-dom';
 import * as BooksAPI from '../BooksAPI';
 import BookDetails from './BookDetails';
 
-function SearchBook({ books, updateBookShelf }) {
+function SearchBook({ books, updateBookByShelf }) {
 
   const [searchQuery, setSearchQuery] = useState("");
   const [searchedBook, setSearchedBook] = useState([]);
 
   // API call to update the shelf of particular book
-  const updateBookCategory = (book, newShelf) => {
+  const updateBookOldCategory = (book, newShelf) => {
     const updateBook = () => {
       const id = searchedBook.findIndex((searchedBook) => {
         return searchedBook.id === book.id;
@@ -17,7 +17,7 @@ function SearchBook({ books, updateBookShelf }) {
       if (id >= 0) {
         let updatedBooks = [...searchedBook];
         updatedBooks[id].shelf = newShelf;
-        updateBookShelf(book, newShelf);
+        updateBookByShelf(book, newShelf);
         setSearchedBook(updatedBooks);
       }
     };
@@ -74,8 +74,8 @@ function SearchBook({ books, updateBookShelf }) {
       <div className="search-books-results">
         <ol className="books-grid">
           {searchedBook && searchedBook.map((book) => {
-            return <BookDetails key={book.id} book={book} updateBookShelf={(book, updatedShelf) =>
-              updateBookCategory(book, updatedShelf)
+            return <BookDetails key={book.id} book={book} updateBookByShelf={(book, updatedShelf) =>
+              updateBookOldCategory(book, updatedShelf)
             } />
           })}
         </ol>

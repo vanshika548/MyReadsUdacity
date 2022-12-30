@@ -2,7 +2,7 @@ import React from 'react';
 import Book from './Book';
 import { Link } from 'react-router-dom';
 
-function ListOfBooks({ books, myShelves, updateBookShelf }) {
+function ListOfBooks({ books, myShelves, updateBookByShelf }) {
 
   // filter books according to the shelf
   const filterBooksByShelf = (shelf) => {
@@ -17,8 +17,8 @@ function ListOfBooks({ books, myShelves, updateBookShelf }) {
       <div className="list-books-content">
         <div>
           {myShelves.map((shelf) => {
-            return <Book shelf={shelf} key={shelf.key} books={filterBooksByShelf(shelf)} updateBookShelf={(book, updatedShelf) =>
-              updateBookShelf(book, updatedShelf)
+            return <Book shelf={shelf} key={shelf.key} books={filterBooksByShelf(shelf)} updateBookByShelf={(book, updatedShelf) =>
+              updateBookByShelf(book, updatedShelf)
             }
             />
           })}
