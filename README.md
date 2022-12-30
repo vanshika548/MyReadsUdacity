@@ -87,8 +87,16 @@ The backend API uses a fixed set of cached search results and is limited to a pa
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). You can find more information on how to perform common tasks [here](https://github.com/facebook/create-react-app/blob/main/packages/cra-template/template/README.md).
 
-## Contributing
+### `Description of the project`
+    *It inlcudes a list of books according to three categories-
+    -Currently Reading
+    -Want to read
+    -Read
+    *You can move the book to any shelf according to your needs.
+    *You can search a book of your choice and can assign to specific shelf of your choice.
 
-This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
-
-For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
+### `How to use My Reads Udacity`
+    *Download or clone this repository.
+    *Change the directories.
+    *Write and run the cammand npm install.
+    *Write npm start to run the project.
