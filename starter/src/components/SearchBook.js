@@ -1,14 +1,16 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 function SearchBook() {
     return (
         <div className="search-books">
             <div className="search-books-bar">
-                <a
+                <Link
+                to='/'
                     className="close-search"
                 >
                     Close
-                </a>
+                </Link>
                 <div className="search-books-input-wrapper">
                     <input
                         type="text"
