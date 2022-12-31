@@ -1,4 +1,5 @@
 import React from 'react';
+import { PropTypes } from "prop-types";
 
 function ShelfDropdown({ onChangeShelf, booksCategory }) {
   const changeShelf = (newShelf) => {
@@ -12,7 +13,7 @@ function ShelfDropdown({ onChangeShelf, booksCategory }) {
         onChange={(event) => {
           changeShelf(event.target.value)
         }}>
-        <option value="none" disabled>
+        <option value="move" disabled>
           Move to...
         </option>
         <option value="currentlyReading">
@@ -27,3 +28,8 @@ function ShelfDropdown({ onChangeShelf, booksCategory }) {
 }
 
 export default ShelfDropdown
+
+ShelfDropdown.propTypes = {
+  booksCategory: PropTypes.string.isRequired,
+  onChangeShelf: PropTypes.func.isRequired,
+};

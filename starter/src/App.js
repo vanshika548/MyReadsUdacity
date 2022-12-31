@@ -4,6 +4,7 @@ import ListOfBooks from "./components/ListOfBooks";
 import SearchBook from "./components/SearchBook";
 import * as BooksAPI from "./BooksAPI";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import NotFound from "./components/NotFound";
 
 function App() {
 
@@ -52,6 +53,7 @@ function App() {
           <Route path='/' element={<ListOfBooks books={books} myShelves={myShelves} updateBookByShelf={(book, updatedShelf) =>
             updateBookByShelf(book, updatedShelf)
           } />}></Route>
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
     </div>

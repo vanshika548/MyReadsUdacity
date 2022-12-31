@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import * as BooksAPI from '../BooksAPI';
 import BookDetails from './BookDetails';
+import { PropTypes } from "prop-types";
 
 function SearchBook({ books, updateBookByShelf }) {
 
@@ -27,7 +28,7 @@ function SearchBook({ books, updateBookByShelf }) {
   // Search API to get searched book
   const searchBooks = (value) => {
     setSearchQuery(value);
-    if (value.trim().length) {
+    if (value.trim().length>0) {
       BooksAPI.search(value).then((data) => {
         if (data.error) {
           setSearchedBook([]);
@@ -85,3 +86,8 @@ function SearchBook({ books, updateBookByShelf }) {
 }
 
 export default SearchBook
+
+SearchBook.propTypes = {
+  books: PropTypes.array.isRequired,
+  updateBookByShelf: PropTypes.func.isRequired,
+};

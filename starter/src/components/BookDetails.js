@@ -1,6 +1,7 @@
 import React from 'react';
 import ShelfDropdown from './ShelfDropdown';
 import * as BooksAPI from '../BooksAPI';
+import { PropTypes } from "prop-types";
 
 function BookDetails({ book, updateBookByShelf }) {
 
@@ -35,4 +36,9 @@ function BookDetails({ book, updateBookByShelf }) {
   )
 }
 
-export default BookDetails
+export default BookDetails;
+
+BookDetails.propTypes = {
+  book: PropTypes.object.isRequired,
+  updateBookByShelf: PropTypes.func.isRequired
+};
